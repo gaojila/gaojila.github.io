@@ -1,15 +1,1 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>PromQL - 标签 - 哥斯拉的小站</title>
-        <link>https://gaojila.github.io/tags/promql/</link>
-        <description>PromQL - 标签 - 哥斯拉的小站</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>redgaojila@gmail.com (Gojila)</managingEditor>
-            <webMaster>redgaojila@gmail.com (Gojila)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 31 Aug 2020 11:43:38 &#43;0800</lastBuildDate><atom:link href="https://gaojila.github.io/tags/promql/" rel="self" type="application/rss+xml" /><item>
-    <title>PromQL常用函数</title>
-    <link>https://gaojila.github.io/promql%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/</link>
-    <pubDate>Mon, 31 Aug 2020 11:43:38 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://gaojila.github.io/promql%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/</guid>
-    <description><![CDATA[PromQL 常用函数 abs() abs(v instant-vector)返回输入向量，所有样本值都转换为其绝对值。 absent() absent(v instant-vector)如果传递给它的向量具]]></description>
-</item></channel>
-</rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>PromQL - 标签 - 哥斯拉的小站</title><link>https://gaojila.github.io/tags/promql/</link><description>PromQL - 标签 - 哥斯拉的小站</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>redgaojila@gmail.com (Gojila)</managingEditor><webMaster>redgaojila@gmail.com (Gojila)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 31 Aug 2020 11:43:38 +0800</lastBuildDate><atom:link href="https://gaojila.github.io/tags/promql/" rel="self" type="application/rss+xml"/><item><title>PromQL常用函数</title><link>https://gaojila.github.io/promql%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/</link><pubDate>Mon, 31 Aug 2020 11:43:38 +0800</pubDate><author>作者</author><guid>https://gaojila.github.io/promql%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/</guid><description>PromQL 常用函数 abs() abs(v instant-vector)返回输入向量，所有样本值都转换为其绝对值。 absent() absent(v instant-vector)如果传递给它的向量具</description></item></channel></rss>

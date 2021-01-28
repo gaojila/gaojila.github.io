@@ -1,292 +1,142 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="robots" content="noodp" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-        <title>neomutt&#43;procmail&#43;fetchmail&#43;msmtp配置exchange邮箱 - 哥斯拉的小站</title><meta name="Description" content=""><meta property="og:title" content="neomutt&#43;procmail&#43;fetchmail&#43;msmtp配置exchange邮箱" />
-<meta property="og:description" content="场景 vim 用久了总想用 vim 来编辑邮件，可是公司的邮箱是 exchange 很头疼，好在最后找到了 davmail 这么个玩意。 davmail 配置邮件交换 下载 个人不太喜欢图形界面，所以直接用 davmail server" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://gaojila.github.io/neomutt-procmail-fetchmail-msmtp%E9%85%8D%E7%BD%AEexchange%E9%82%AE%E7%AE%B1/" />
-<meta property="og:image" content="https://gaojila.github.io/logo.png"/>
-<meta property="article:published_time" content="2019-08-19T20:06:43+08:00" />
-<meta property="article:modified_time" content="2019-08-19T20:06:43+08:00" />
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://gaojila.github.io/logo.png"/>
-
-<meta name="twitter:title" content="neomutt&#43;procmail&#43;fetchmail&#43;msmtp配置exchange邮箱"/>
-<meta name="twitter:description" content="场景 vim 用久了总想用 vim 来编辑邮件，可是公司的邮箱是 exchange 很头疼，好在最后找到了 davmail 这么个玩意。 davmail 配置邮件交换 下载 个人不太喜欢图形界面，所以直接用 davmail server"/>
-<meta name="application-name" content="哥斯拉的小站">
-<meta name="apple-mobile-web-app-title" content="哥斯拉的小站"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://gaojila.github.io/neomutt-procmail-fetchmail-msmtp%E9%85%8D%E7%BD%AEexchange%E9%82%AE%E7%AE%B1/" /><link rel="prev" href="https://gaojila.github.io/%E8%AE%B0%E4%B8%80%E6%AC%A1ubuntu%E7%A6%81%E7%94%A8%E5%86%85%E6%A0%B8%E6%9B%B4%E6%96%B0/" /><link rel="next" href="https://gaojila.github.io/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AD%A6golang-%E5%88%87%E7%89%87/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
-    {
-        "@context": "http://schema.org",
-        "@type": "BlogPosting",
-        "headline": "neomutt+procmail+fetchmail+msmtp配置exchange邮箱",
-        "inLanguage": "zh-CN",
-        "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "https:\/\/gaojila.github.io\/neomutt-procmail-fetchmail-msmtp%E9%85%8D%E7%BD%AEexchange%E9%82%AE%E7%AE%B1\/"
-        },"image": ["https:\/\/gaojila.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "邮件客户端","wordcount":  1104 ,
-        "url": "https:\/\/gaojila.github.io\/neomutt-procmail-fetchmail-msmtp%E9%85%8D%E7%BD%AEexchange%E9%82%AE%E7%AE%B1\/","datePublished": "2019-08-19T20:06:43+08:00","dateModified": "2019-08-19T20:06:43+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
-            "@type": "Organization",
-            "name": "Gojila","logo": "https:\/\/gaojila.github.io\/images\/avatar.png"},"author": {
-                "@type": "Person",
-                "name": "Gojila"
-            },"description": ""
-    }
-    </script></head>
-    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
-
-        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
-    <div class="header-wrapper">
-        <div class="header-title">
-            <a href="/" title="哥斯拉的小站"><span class="header-title-pre">😍</span><span id="id-1" class="typeit"></span></a>
-        </div>
-        <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
-                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
-                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
-                            <i class="fas fa-search fa-fw"></i>
-                        </a>
-                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
-                            <i class="fas fa-times-circle fa-fw"></i>
-                        </a>
-                        <span class="search-button search-loading" id="search-loading-desktop">
-                            <i class="fas fa-spinner fa-fw fa-spin"></i>
-                        </span>
-                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
-                    <i class="fas fa-adjust fa-fw"></i>
-                </a>
-            </div>
-        </div>
-    </div>
-</header><header class="mobile" id="header-mobile">
-    <div class="header-container">
-        <div class="header-wrapper">
-            <div class="header-title">
-                <a href="/" title="哥斯拉的小站"><span class="header-title-pre">😍</span><span id="id-2" class="typeit"></span></a>
-            </div>
-            <div class="menu-toggle" id="menu-toggle-mobile">
-                <span></span><span></span><span></span>
-            </div>
-        </div>
-        <div class="menu" id="menu-mobile"><div class="search-wrapper">
-                    <div class="search mobile" id="search-mobile">
-                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
-                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
-                            <i class="fas fa-search fa-fw"></i>
-                        </a>
-                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
-                            <i class="fas fa-times-circle fa-fw"></i>
-                        </a>
-                        <span class="search-button search-loading" id="search-loading-mobile">
-                            <i class="fas fa-spinner fa-fw fa-spin"></i>
-                        </span>
-                    </div>
-                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
-                        取消
-                    </a>
-                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
-                <i class="fas fa-adjust fa-fw"></i>
-            </a></div>
-    </div>
-</header>
-<div class="search-dropdown desktop">
-    <div id="search-dropdown-desktop"></div>
-</div>
-<div class="search-dropdown mobile">
-    <div id="search-dropdown-mobile"></div>
-</div>
-<main class="main">
-                <div class="container"><div class="toc" id="toc-auto">
-            <h2 class="toc-title">目录</h2>
-            <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animated flipInX">neomutt&#43;procmail&#43;fetchmail&#43;msmtp配置exchange邮箱</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Gojila</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/dotfile%E9%85%8D%E7%BD%AE/"><i class="far fa-folder fa-fw"></i>dotfile配置</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2019-08-19">2019-08-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1104 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
-        </div><div class="details toc" id="toc-static"  kept="">
-                <div class="details-summary toc-title">
-                    <span>目录</span>
-                    <span><i class="details-icon fas fa-angle-right"></i></span>
-                </div>
-                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
-  <ul>
-    <li><a href="#下载">下载</a></li>
-    <li><a href="#配置">配置</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#安装">安装</a></li>
-    <li><a href="#配置-1">配置</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#安装-1">安装</a></li>
-    <li><a href="#配置-2">配置</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#安装-2">安装</a></li>
-    <li><a href="#配置-3">配置</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#安装-3">安装</a></li>
-    <li><a href="#配置-4">配置</a></li>
-  </ul>
-</nav></div>
-            </div><div class="content" id="content"><h1 id="场景">场景</h1>
-<p>vim 用久了总想用 vim 来编辑邮件，可是公司的邮箱是 exchange 很头疼，好在最后找到了 davmail 这么个玩意。</p>
-<h1 id="davmail-配置邮件交换">davmail 配置邮件交换</h1>
-<h2 id="下载">下载</h2>
-<p>个人不太喜欢图形界面，所以直接用 davmail server 版</p>
-<ul>
-<li><a href="https://sourceforge.net/projects/davmail/files/davmail/5.0.0/davmail-5.0.0-2801.zip/download" target="_blank" rel="noopener noreffer">下载地址</a>
-如果不能下载请自行爬墙</li>
-</ul>
-<h2 id="配置">配置</h2>
-<p>/etc/davmail.properties</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">  1
-</span><span class="lnt">  2
-</span><span class="lnt">  3
-</span><span class="lnt">  4
-</span><span class="lnt">  5
-</span><span class="lnt">  6
-</span><span class="lnt">  7
-</span><span class="lnt">  8
-</span><span class="lnt">  9
-</span><span class="lnt"> 10
-</span><span class="lnt"> 11
-</span><span class="lnt"> 12
-</span><span class="lnt"> 13
-</span><span class="lnt"> 14
-</span><span class="lnt"> 15
-</span><span class="lnt"> 16
-</span><span class="lnt"> 17
-</span><span class="lnt"> 18
-</span><span class="lnt"> 19
-</span><span class="lnt"> 20
-</span><span class="lnt"> 21
-</span><span class="lnt"> 22
-</span><span class="lnt"> 23
-</span><span class="lnt"> 24
-</span><span class="lnt"> 25
-</span><span class="lnt"> 26
-</span><span class="lnt"> 27
-</span><span class="lnt"> 28
-</span><span class="lnt"> 29
-</span><span class="lnt"> 30
-</span><span class="lnt"> 31
-</span><span class="lnt"> 32
-</span><span class="lnt"> 33
-</span><span class="lnt"> 34
-</span><span class="lnt"> 35
-</span><span class="lnt"> 36
-</span><span class="lnt"> 37
-</span><span class="lnt"> 38
-</span><span class="lnt"> 39
-</span><span class="lnt"> 40
-</span><span class="lnt"> 41
-</span><span class="lnt"> 42
-</span><span class="lnt"> 43
-</span><span class="lnt"> 44
-</span><span class="lnt"> 45
-</span><span class="lnt"> 46
-</span><span class="lnt"> 47
-</span><span class="lnt"> 48
-</span><span class="lnt"> 49
-</span><span class="lnt"> 50
-</span><span class="lnt"> 51
-</span><span class="lnt"> 52
-</span><span class="lnt"> 53
-</span><span class="lnt"> 54
-</span><span class="lnt"> 55
-</span><span class="lnt"> 56
-</span><span class="lnt"> 57
-</span><span class="lnt"> 58
-</span><span class="lnt"> 59
-</span><span class="lnt"> 60
-</span><span class="lnt"> 61
-</span><span class="lnt"> 62
-</span><span class="lnt"> 63
-</span><span class="lnt"> 64
-</span><span class="lnt"> 65
-</span><span class="lnt"> 66
-</span><span class="lnt"> 67
-</span><span class="lnt"> 68
-</span><span class="lnt"> 69
-</span><span class="lnt"> 70
-</span><span class="lnt"> 71
-</span><span class="lnt"> 72
-</span><span class="lnt"> 73
-</span><span class="lnt"> 74
-</span><span class="lnt"> 75
-</span><span class="lnt"> 76
-</span><span class="lnt"> 77
-</span><span class="lnt"> 78
-</span><span class="lnt"> 79
-</span><span class="lnt"> 80
-</span><span class="lnt"> 81
-</span><span class="lnt"> 82
-</span><span class="lnt"> 83
-</span><span class="lnt"> 84
-</span><span class="lnt"> 85
-</span><span class="lnt"> 86
-</span><span class="lnt"> 87
-</span><span class="lnt"> 88
-</span><span class="lnt"> 89
-</span><span class="lnt"> 90
-</span><span class="lnt"> 91
-</span><span class="lnt"> 92
-</span><span class="lnt"> 93
-</span><span class="lnt"> 94
-</span><span class="lnt"> 95
-</span><span class="lnt"> 96
-</span><span class="lnt"> 97
-</span><span class="lnt"> 98
-</span><span class="lnt"> 99
-</span><span class="lnt">100
-</span><span class="lnt">101
-</span><span class="lnt">102
-</span><span class="lnt">103
-</span><span class="lnt">104
-</span><span class="lnt">105
-</span><span class="lnt">106
-</span><span class="lnt">107
-</span><span class="lnt">108
-</span><span class="lnt">109
-</span><span class="lnt">110
-</span><span class="lnt">111
-</span><span class="lnt">112
-</span><span class="lnt">113
-</span><span class="lnt">114
-</span><span class="lnt">115
-</span><span class="lnt">116
-</span><span class="lnt">117
-</span><span class="lnt">118
-</span><span class="lnt">119
-</span><span class="lnt">120
-</span><span class="lnt">121
-</span><span class="lnt">122
-</span><span class="lnt">123
-</span><span class="lnt">124
-</span><span class="lnt">125
-</span><span class="lnt">126
-</span><span class="lnt">127
-</span><span class="lnt">128
-</span><span class="lnt">129
-</span><span class="lnt">130
-</span><span class="lnt">131
-</span><span class="lnt">132
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback"># DavMail settings, see http://davmail.sourceforge.net/ for documentation
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta http-equiv=x-ua-compatible content="IE=edge, chrome=1"><title>neomutt+procmail+fetchmail+msmtp配置exchange邮箱 - 哥斯拉的小站</title><meta name=Description content><meta property="og:title" content="neomutt+procmail+fetchmail+msmtp配置exchange邮箱"><meta property="og:description" content="场景 vim 用久了总想用 vim 来编辑邮件，可是公司的邮箱是 exchange 很头疼，好在最后找到了 davmail 这么个玩意。 davmail 配置邮件交换 下载 个人不太喜欢图形界面，所以直接用 davmail server"><meta property="og:type" content="article"><meta property="og:url" content="https://gaojila.github.io/neomutt-procmail-fetchmail-msmtp%E9%85%8D%E7%BD%AEexchange%E9%82%AE%E7%AE%B1/"><meta property="og:image" content="https://gaojila.github.io/logo.png"><meta property="article:published_time" content="2019-08-19T20:06:43+08:00"><meta property="article:modified_time" content="2019-08-19T20:06:43+08:00"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://gaojila.github.io/logo.png"><meta name=twitter:title content="neomutt+procmail+fetchmail+msmtp配置exchange邮箱"><meta name=twitter:description content="场景 vim 用久了总想用 vim 来编辑邮件，可是公司的邮箱是 exchange 很头疼，好在最后找到了 davmail 这么个玩意。 davmail 配置邮件交换 下载 个人不太喜欢图形界面，所以直接用 davmail server"><meta name=application-name content="哥斯拉的小站"><meta name=apple-mobile-web-app-title content="哥斯拉的小站"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://gaojila.github.io/neomutt-procmail-fetchmail-msmtp%E9%85%8D%E7%BD%AEexchange%E9%82%AE%E7%AE%B1/><link rel=prev href=https://gaojila.github.io/%E8%AE%B0%E4%B8%80%E6%AC%A1ubuntu%E7%A6%81%E7%94%A8%E5%86%85%E6%A0%B8%E6%9B%B4%E6%96%B0/><link rel=next href=https://gaojila.github.io/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AD%A6golang-%E5%88%87%E7%89%87/><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"neomutt+procmail+fetchmail+msmtp配置exchange邮箱","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/gaojila.github.io\/neomutt-procmail-fetchmail-msmtp%E9%85%8D%E7%BD%AEexchange%E9%82%AE%E7%AE%B1\/"},"image":["https:\/\/gaojila.github.io\/images\/Apple-Devices-Preview.png"],"genre":"posts","keywords":"邮件客户端","wordcount":1104,"url":"https:\/\/gaojila.github.io\/neomutt-procmail-fetchmail-msmtp%E9%85%8D%E7%BD%AEexchange%E9%82%AE%E7%AE%B1\/","datePublished":"2019-08-19T20:06:43+08:00","dateModified":"2019-08-19T20:06:43+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"Gojila","logo":"https:\/\/gaojila.github.io\/images\/avatar.png"},"author":{"@type":"Person","name":"Gojila"},"description":""}</script></head><body header-desktop=fixed header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':('auto'==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:'auto'==='dark'))&&document.body.setAttribute('theme','dark');</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/ title=哥斯拉的小站><span class=header-title-pre>😍</span><span id=id-1 class=typeit></span></a></div><div class=menu><div class=menu-inner><a class=menu-item href=/posts/>所有文章 </a><a class=menu-item href=/tags/>标签 </a><a class=menu-item href=/categories/>分类 </a><a class=menu-item href=/about/>关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop><input type=text placeholder=搜索文章标题或内容... id=search-input-desktop>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-desktop title=搜索><i class="fas fa-search fa-fw"></i></a><a href=javascript:void(0); class="search-button search-clear" id=search-clear-desktop title=清空><i class="fas fa-times-circle fa-fw"></i></a><span class="search-button search-loading" id=search-loading-desktop><i class="fas fa-spinner fa-fw fa-spin"></i></span></span><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题><i class="fas fa-adjust fa-fw"></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title=哥斯拉的小站><span class=header-title-pre>😍</span><span id=id-2 class=typeit></span></a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><div class=search-wrapper><div class="search mobile" id=search-mobile><input type=text placeholder=搜索文章标题或内容... id=search-input-mobile>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-mobile title=搜索><i class="fas fa-search fa-fw"></i></a><a href=javascript:void(0); class="search-button search-clear" id=search-clear-mobile title=清空><i class="fas fa-times-circle fa-fw"></i></a><span class="search-button search-loading" id=search-loading-mobile><i class="fas fa-spinner fa-fw fa-spin"></i></span></div><a href=javascript:void(0); class=search-cancel id=search-cancel-mobile>取消</a></div><a class=menu-item href=/posts/>所有文章</a><a class=menu-item href=/tags/>标签</a><a class=menu-item href=/categories/>分类</a><a class=menu-item href=/about/>关于</a><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
+<i class="fas fa-adjust fa-fw"></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>目录</h2><div class=toc-content id=toc-content-auto></div></div><article class="page single"><h1 class="single-title animated flipInX">neomutt+procmail+fetchmail+msmtp配置exchange邮箱</h1><div class=post-meta><div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i>Gojila</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/dotfile%E9%85%8D%E7%BD%AE/><i class="far fa-folder fa-fw"></i>dotfile配置</a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2019-08-19>2019-08-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1104 字&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;</div></div><div class="details toc" id=toc-static kept><div class="details-summary toc-title"><span>目录</span>
+<span><i class="details-icon fas fa-angle-right"></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ul><li><a href=#下载>下载</a></li><li><a href=#配置>配置</a></li></ul><ul><li><a href=#安装>安装</a></li><li><a href=#配置-1>配置</a></li></ul><ul><li><a href=#安装-1>安装</a></li><li><a href=#配置-2>配置</a></li></ul><ul><li><a href=#安装-2>安装</a></li><li><a href=#配置-3>配置</a></li></ul><ul><li><a href=#安装-3>安装</a></li><li><a href=#配置-4>配置</a></li></ul></nav></div></div><div class=content id=content><h1 id=场景>场景</h1><p>vim 用久了总想用 vim 来编辑邮件，可是公司的邮箱是 exchange 很头疼，好在最后找到了 davmail 这么个玩意。</p><h1 id=davmail-配置邮件交换>davmail 配置邮件交换</h1><h2 id=下载>下载</h2><p>个人不太喜欢图形界面，所以直接用 davmail server 版</p><ul><li><a href=https://sourceforge.net/projects/davmail/files/davmail/5.0.0/davmail-5.0.0-2801.zip/download target=_blank rel="noopener noreffer">下载地址</a>
+如果不能下载请自行爬墙</li></ul><h2 id=配置>配置</h2><p>/etc/davmail.properties</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>  1
+</span><span class=lnt>  2
+</span><span class=lnt>  3
+</span><span class=lnt>  4
+</span><span class=lnt>  5
+</span><span class=lnt>  6
+</span><span class=lnt>  7
+</span><span class=lnt>  8
+</span><span class=lnt>  9
+</span><span class=lnt> 10
+</span><span class=lnt> 11
+</span><span class=lnt> 12
+</span><span class=lnt> 13
+</span><span class=lnt> 14
+</span><span class=lnt> 15
+</span><span class=lnt> 16
+</span><span class=lnt> 17
+</span><span class=lnt> 18
+</span><span class=lnt> 19
+</span><span class=lnt> 20
+</span><span class=lnt> 21
+</span><span class=lnt> 22
+</span><span class=lnt> 23
+</span><span class=lnt> 24
+</span><span class=lnt> 25
+</span><span class=lnt> 26
+</span><span class=lnt> 27
+</span><span class=lnt> 28
+</span><span class=lnt> 29
+</span><span class=lnt> 30
+</span><span class=lnt> 31
+</span><span class=lnt> 32
+</span><span class=lnt> 33
+</span><span class=lnt> 34
+</span><span class=lnt> 35
+</span><span class=lnt> 36
+</span><span class=lnt> 37
+</span><span class=lnt> 38
+</span><span class=lnt> 39
+</span><span class=lnt> 40
+</span><span class=lnt> 41
+</span><span class=lnt> 42
+</span><span class=lnt> 43
+</span><span class=lnt> 44
+</span><span class=lnt> 45
+</span><span class=lnt> 46
+</span><span class=lnt> 47
+</span><span class=lnt> 48
+</span><span class=lnt> 49
+</span><span class=lnt> 50
+</span><span class=lnt> 51
+</span><span class=lnt> 52
+</span><span class=lnt> 53
+</span><span class=lnt> 54
+</span><span class=lnt> 55
+</span><span class=lnt> 56
+</span><span class=lnt> 57
+</span><span class=lnt> 58
+</span><span class=lnt> 59
+</span><span class=lnt> 60
+</span><span class=lnt> 61
+</span><span class=lnt> 62
+</span><span class=lnt> 63
+</span><span class=lnt> 64
+</span><span class=lnt> 65
+</span><span class=lnt> 66
+</span><span class=lnt> 67
+</span><span class=lnt> 68
+</span><span class=lnt> 69
+</span><span class=lnt> 70
+</span><span class=lnt> 71
+</span><span class=lnt> 72
+</span><span class=lnt> 73
+</span><span class=lnt> 74
+</span><span class=lnt> 75
+</span><span class=lnt> 76
+</span><span class=lnt> 77
+</span><span class=lnt> 78
+</span><span class=lnt> 79
+</span><span class=lnt> 80
+</span><span class=lnt> 81
+</span><span class=lnt> 82
+</span><span class=lnt> 83
+</span><span class=lnt> 84
+</span><span class=lnt> 85
+</span><span class=lnt> 86
+</span><span class=lnt> 87
+</span><span class=lnt> 88
+</span><span class=lnt> 89
+</span><span class=lnt> 90
+</span><span class=lnt> 91
+</span><span class=lnt> 92
+</span><span class=lnt> 93
+</span><span class=lnt> 94
+</span><span class=lnt> 95
+</span><span class=lnt> 96
+</span><span class=lnt> 97
+</span><span class=lnt> 98
+</span><span class=lnt> 99
+</span><span class=lnt>100
+</span><span class=lnt>101
+</span><span class=lnt>102
+</span><span class=lnt>103
+</span><span class=lnt>104
+</span><span class=lnt>105
+</span><span class=lnt>106
+</span><span class=lnt>107
+</span><span class=lnt>108
+</span><span class=lnt>109
+</span><span class=lnt>110
+</span><span class=lnt>111
+</span><span class=lnt>112
+</span><span class=lnt>113
+</span><span class=lnt>114
+</span><span class=lnt>115
+</span><span class=lnt>116
+</span><span class=lnt>117
+</span><span class=lnt>118
+</span><span class=lnt>119
+</span><span class=lnt>120
+</span><span class=lnt>121
+</span><span class=lnt>122
+</span><span class=lnt>123
+</span><span class=lnt>124
+</span><span class=lnt>125
+</span><span class=lnt>126
+</span><span class=lnt>127
+</span><span class=lnt>128
+</span><span class=lnt>129
+</span><span class=lnt>130
+</span><span class=lnt>131
+</span><span class=lnt>132
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback># DavMail settings, see http://davmail.sourceforge.net/ for documentation
 
 #############################################################
 # Basic settings
@@ -418,24 +268,17 @@ davmail.showStartupBanner=true
 
 # enable transparent client Kerberos authentication
 davmail.enableKerberos=false
-</code></pre></td></tr></table>
-</div>
-</div><p>使用 supervisor 将 davmail 守护起来(使用 apt、yum、pacman 直接安装)
-编辑/etc/supervisor.d/davmail.ini</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">[program:DavMail]
+</code></pre></td></tr></table></div></div><p>使用 supervisor 将 davmail 守护起来(使用 apt、yum、pacman 直接安装)
+编辑/etc/supervisor.d/davmail.ini</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>[program:DavMail]
 command=/opt/davmail/davmail.sh /etc/davmail.properties
 user=root
 autostart=true
@@ -444,30 +287,18 @@ startsecs=120
 stopasgroup=true
 ikillasgroup=true
 startretries=1
-</code></pre></td></tr></table>
-</div>
-</div><p>最后使用 supervisorctl reload 即可
-这样我们的邮件交换久配置完成了</p>
-<h1 id="fetchmail-收取邮件">fetchmail 收取邮件</h1>
-<h2 id="安装">安装</h2>
-<p>不在赘述（apt、yum、pacman）直接安装</p>
-<h2 id="配置-1">配置</h2>
-<p>~/.fetchmailrc （没有就自己创建一个）</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">defaults
+</code></pre></td></tr></table></div></div><p>最后使用 supervisorctl reload 即可
+这样我们的邮件交换久配置完成了</p><h1 id=fetchmail-收取邮件>fetchmail 收取邮件</h1><h2 id=安装>安装</h2><p>不在赘述（apt、yum、pacman）直接安装</p><h2 id=配置-1>配置</h2><p>~/.fetchmailrc （没有就自己创建一个）</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>defaults
 mda &#34;/usr/bin/procmail -d %T&#34;
 
 set idfile /home/luwenzheng/Maildir/.fetchids&#34;&#34;
@@ -477,31 +308,20 @@ set postmaster &#34;luwenzheng&#34;
 poll 127.0.0.1 with protocol imap port 1143 uidl
 username &#34;luwenzheng@genscript.com&#34; there with password &#34;********&#34; is &#39;luwenzheng&#39; here
 options keep
-</code></pre></td></tr></table>
-</div>
-</div><h1 id="promail-过滤邮件">promail 过滤邮件</h1>
-<h2 id="安装-1">安装</h2>
-<p>不在赘述（apt、yum、pacman）直接安装</p>
-<h2 id="配置-2">配置</h2>
-<p>~/.procmailrc (没有就自己创建一个)</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">MAILDIR=/home/luwenzheng/Maildir   #邮件存储地址
+</code></pre></td></tr></table></div></div><h1 id=promail-过滤邮件>promail 过滤邮件</h1><h2 id=安装-1>安装</h2><p>不在赘述（apt、yum、pacman）直接安装</p><h2 id=配置-2>配置</h2><p>~/.procmailrc (没有就自己创建一个)</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>MAILDIR=/home/luwenzheng/Maildir   #邮件存储地址
 DEFAULT=$MAILDIR/inbox   #默认：收件箱
 VERBOSE=off
 LOGFILE=/var/log/Mail/procmail.log
@@ -514,30 +334,18 @@ LOGFILE=/var/log/Mail/procmail.log
 # 其它所有都存到收件箱中
 :0:
 inbox/
-</code></pre></td></tr></table>
-</div>
-</div><p>procmail 中的路径需要自己创建
-接下来你就可以使用 fetchmail -a 收取全部邮件了</p>
-<h1 id="mstmp-发送邮件">mstmp 发送邮件</h1>
-<h2 id="安装-2">安装</h2>
-<p>不在赘述（apt、yum、pacman）直接安装</p>
-<h2 id="配置-3">配置</h2>
-<p>~/.mstmprc （没有就自己创建一个）</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">defaults
+</code></pre></td></tr></table></div></div><p>procmail 中的路径需要自己创建
+接下来你就可以使用 fetchmail -a 收取全部邮件了</p><h1 id=mstmp-发送邮件>mstmp 发送邮件</h1><h2 id=安装-2>安装</h2><p>不在赘述（apt、yum、pacman）直接安装</p><h2 id=配置-3>配置</h2><p>~/.mstmprc （没有就自己创建一个）</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>defaults
 logfile /home/luwenzheng/Maildir/msmtp.log
 account genscript
 host 127.0.0.1
@@ -547,53 +355,5 @@ password ********
 port 1025
 auth plain
 account default:genscript
-</code></pre></td></tr></table>
-</div>
-</div><h1 id="neomutt-邮件客户端">neomutt （邮件客户端）</h1>
-<h2 id="安装-3">安装</h2>
-<p>不在赘述（apt、yum、pacman）直接安装</p>
-<h2 id="配置-4">配置</h2>
-<p>~/.config/neomutt 路径下有大量配置文件，各类个性话定制详细配置请查看我的 dotfile</p>
-</div><div class="post-footer" id="post-footer">
-    <div class="post-info">
-        <div class="post-info-line">
-            <div class="post-info-mod">
-                <span>更新于 2019-08-19</span>
-            </div>
-            <div class="post-info-license"></div>
-        </div>
-        <div class="post-info-line">
-            <div class="post-info-md"><span>
-                            <a class="link-to-markdown" href="/neomutt-procmail-fetchmail-msmtp%E9%85%8D%E7%BD%AEexchange%E9%82%AE%E7%AE%B1/index.md" target="_blank">阅读原始文档</a>
-                        </span></div>
-            <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://gaojila.github.io/neomutt-procmail-fetchmail-msmtp%E9%85%8D%E7%BD%AEexchange%E9%82%AE%E7%AE%B1/" data-title="neomutt&#43;procmail&#43;fetchmail&#43;msmtp配置exchange邮箱" data-hashtags="邮件客户端"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://gaojila.github.io/neomutt-procmail-fetchmail-msmtp%E9%85%8D%E7%BD%AEexchange%E9%82%AE%E7%AE%B1/" data-hashtag="邮件客户端"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://gaojila.github.io/neomutt-procmail-fetchmail-msmtp%E9%85%8D%E7%BD%AEexchange%E9%82%AE%E7%AE%B1/" data-title="neomutt&#43;procmail&#43;fetchmail&#43;msmtp配置exchange邮箱"><i class="fab fa-hacker-news fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://gaojila.github.io/neomutt-procmail-fetchmail-msmtp%E9%85%8D%E7%BD%AEexchange%E9%82%AE%E7%AE%B1/" data-title="neomutt&#43;procmail&#43;fetchmail&#43;msmtp配置exchange邮箱"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://gaojila.github.io/neomutt-procmail-fetchmail-msmtp%E9%85%8D%E7%BD%AEexchange%E9%82%AE%E7%AE%B1/" data-title="neomutt&#43;procmail&#43;fetchmail&#43;msmtp配置exchange邮箱"><i class="fab fa-weibo fa-fw"></i></a></span>
-            </div>
-        </div>
-    </div>
-
-    <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/%E9%82%AE%E4%BB%B6%E5%AE%A2%E6%88%B7%E7%AB%AF/">邮件客户端</a></section>
-        <section>
-            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
-        </section>
-    </div>
-
-    <div class="post-nav"><a href="/%E8%AE%B0%E4%B8%80%E6%AC%A1ubuntu%E7%A6%81%E7%94%A8%E5%86%85%E6%A0%B8%E6%9B%B4%E6%96%B0/" class="prev" rel="prev" title="记一次ubuntu禁用内核更新"><i class="fas fa-angle-left fa-fw"></i>记一次ubuntu禁用内核更新</a>
-            <a href="/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AD%A6golang-%E5%88%87%E7%89%87/" class="next" rel="next" title="从零开始学Golang-切片">从零开始学Golang-切片<i class="fas fa-angle-right fa-fw"></i></a></div>
-</div>
-<div id="comments"><div id="gitalk" class="comment"></div><noscript>
-                Please enable JavaScript to view the comments powered by <a href="https://github.com/gitalk/gitalk"></a>Gitalk</a>.
-            </noscript></div></article></div>
-            </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Gojila</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
-        </div>
-    </footer></div>
-
-        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
-                <i class="fas fa-arrow-up fa-fw"></i>
-            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
-                <i class="fas fa-comment fa-fw"></i>
-            </a>
-        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@13.0.0/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@7.0.4/dist/typeit.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{"gitalk":{"admin":["gaojila"],"clientID":"0dc7899f1da0fe0da987","clientSecret":"f303eaf61e27467fa0400202224934bbf78baabe","id":"2019-08-19T20:06:43+08:00","owner":"gaojila","repo":"gaojila.github.io","title":"neomutt+procmail+fetchmail+msmtp配置exchange邮箱"}},"data":{"id-1":" [root@gaojila]# cd ~","id-2":" [root@gaojila]# cd ~"},"search":{"algoliaAppID":"U9QMQ70DKL","algoliaIndex":"gaojila.github.io","algoliaSearchKey":"9c5f0222136bb5161c8e6836edc66b05","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"twemoji":true,"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":50}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
-</html>
+</code></pre></td></tr></table></div></div><h1 id=neomutt-邮件客户端>neomutt （邮件客户端）</h1><h2 id=安装-3>安装</h2><p>不在赘述（apt、yum、pacman）直接安装</p><h2 id=配置-4>配置</h2><p>~/.config/neomutt 路径下有大量配置文件，各类个性话定制详细配置请查看我的 dotfile</p></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>更新于 2019-08-19</span></div><div class=post-info-license></div></div><div class=post-info-line><div class=post-info-md><span><a class=link-to-markdown href=/neomutt-procmail-fetchmail-msmtp%E9%85%8D%E7%BD%AEexchange%E9%82%AE%E7%AE%B1/index.md target=_blank>阅读原始文档</a></span></div><div class=post-info-share><span><a href=javascript:void(0); title="分享到 Twitter" data-sharer=twitter data-url=https://gaojila.github.io/neomutt-procmail-fetchmail-msmtp%E9%85%8D%E7%BD%AEexchange%E9%82%AE%E7%AE%B1/ data-title=neomutt+procmail+fetchmail+msmtp配置exchange邮箱 data-hashtags=邮件客户端><i class="fab fa-twitter fa-fw"></i></a><a href=javascript:void(0); title="分享到 Facebook" data-sharer=facebook data-url=https://gaojila.github.io/neomutt-procmail-fetchmail-msmtp%E9%85%8D%E7%BD%AEexchange%E9%82%AE%E7%AE%B1/ data-hashtag=邮件客户端><i class="fab fa-facebook-square fa-fw"></i></a><a href=javascript:void(0); title="分享到 Hacker News" data-sharer=hackernews data-url=https://gaojila.github.io/neomutt-procmail-fetchmail-msmtp%E9%85%8D%E7%BD%AEexchange%E9%82%AE%E7%AE%B1/ data-title=neomutt+procmail+fetchmail+msmtp配置exchange邮箱><i class="fab fa-hacker-news fa-fw"></i></a><a href=javascript:void(0); title="分享到 Line" data-sharer=line data-url=https://gaojila.github.io/neomutt-procmail-fetchmail-msmtp%E9%85%8D%E7%BD%AEexchange%E9%82%AE%E7%AE%B1/ data-title=neomutt+procmail+fetchmail+msmtp配置exchange邮箱><i data-svg-src=https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg></i></a><a href=javascript:void(0); title="分享到 微博" data-sharer=weibo data-url=https://gaojila.github.io/neomutt-procmail-fetchmail-msmtp%E9%85%8D%E7%BD%AEexchange%E9%82%AE%E7%AE%B1/ data-title=neomutt+procmail+fetchmail+msmtp配置exchange邮箱><i class="fab fa-weibo fa-fw"></i></a></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/%E9%82%AE%E4%BB%B6%E5%AE%A2%E6%88%B7%E7%AB%AF/>邮件客户端</a></section><section><span><a href=javascript:void(0); onclick=window.history.back();>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span></section></div><div class=post-nav><a href=/%E8%AE%B0%E4%B8%80%E6%AC%A1ubuntu%E7%A6%81%E7%94%A8%E5%86%85%E6%A0%B8%E6%9B%B4%E6%96%B0/ class=prev rel=prev title=记一次ubuntu禁用内核更新><i class="fas fa-angle-left fa-fw"></i>记一次ubuntu禁用内核更新</a>
+<a href=/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AD%A6golang-%E5%88%87%E7%89%87/ class=next rel=next title=从零开始学Golang-切片>从零开始学Golang-切片<i class="fas fa-angle-right fa-fw"></i></a></div></div><div id=comments><div id=gitalk class=comment></div><noscript>Please enable JavaScript to view the comments powered by <a href=https://github.com/gitalk/gitalk></a>Gitalk</a>.</noscript></div></article></div></main><footer class=footer><div class=footer-container><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2019 - 2021</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=/ target=_blank>Gojila</a></span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部><i class="fas fa-arrow-up fa-fw"></i></a><a href=# id=view-comments class=fixed-button title=查看评论><i class="fas fa-comment fa-fw"></i></a></div><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.min.css><script type=text/javascript src=https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/twemoji@13.0.0/dist/twemoji.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/typeit@7.0.4/dist/typeit.min.js></script><script type=text/javascript>window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{"gitalk":{"admin":["gaojila"],"clientID":"0dc7899f1da0fe0da987","clientSecret":"f303eaf61e27467fa0400202224934bbf78baabe","id":"2019-08-19T20:06:43+08:00","owner":"gaojila","repo":"gaojila.github.io","title":"neomutt+procmail+fetchmail+msmtp配置exchange邮箱"}},"data":{"id-1":" [root@gaojila]# cd ~","id-2":" [root@gaojila]# cd ~"},"search":{"algoliaAppID":"U9QMQ70DKL","algoliaIndex":"gaojila.github.io","algoliaSearchKey":"9c5f0222136bb5161c8e6836edc66b05","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"twemoji":true,"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":50}};</script><script type=text/javascript src=/js/theme.min.js></script></body></html>

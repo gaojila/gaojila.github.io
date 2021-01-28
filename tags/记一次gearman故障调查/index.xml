@@ -1,15 +1,1 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>记一次gearman故障调查 - 标签 - 哥斯拉的小站</title>
-        <link>https://gaojila.github.io/tags/%E8%AE%B0%E4%B8%80%E6%AC%A1gearman%E6%95%85%E9%9A%9C%E8%B0%83%E6%9F%A5/</link>
-        <description>记一次gearman故障调查 - 标签 - 哥斯拉的小站</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>redgaojila@gmail.com (Gojila)</managingEditor>
-            <webMaster>redgaojila@gmail.com (Gojila)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 17 Aug 2019 12:42:38 &#43;0800</lastBuildDate><atom:link href="https://gaojila.github.io/tags/%E8%AE%B0%E4%B8%80%E6%AC%A1gearman%E6%95%85%E9%9A%9C%E8%B0%83%E6%9F%A5/" rel="self" type="application/rss+xml" /><item>
-    <title>记一次gearman故障调查</title>
-    <link>https://gaojila.github.io/%E8%AE%B0%E4%B8%80%E6%AC%A1gearman%E6%95%85%E9%9A%9C%E8%B0%83%E6%9F%A5/</link>
-    <pubDate>Sat, 17 Aug 2019 12:42:38 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://gaojila.github.io/%E8%AE%B0%E4%B8%80%E6%AC%A1gearman%E6%95%85%E9%9A%9C%E8%B0%83%E6%9F%A5/</guid>
-    <description><![CDATA[场景 个业务系统无法生成订单,订单报错和 gearman 的 worker 有关，使用 curl 调用接口发现报 500 错误。 过程 curl 调用接口不通 登录 gearman 服务器调用接口不通 重启 gearman worker 调用不通 查看]]></description>
-</item></channel>
-</rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>记一次gearman故障调查 - 标签 - 哥斯拉的小站</title><link>https://gaojila.github.io/tags/%E8%AE%B0%E4%B8%80%E6%AC%A1gearman%E6%95%85%E9%9A%9C%E8%B0%83%E6%9F%A5/</link><description>记一次gearman故障调查 - 标签 - 哥斯拉的小站</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>redgaojila@gmail.com (Gojila)</managingEditor><webMaster>redgaojila@gmail.com (Gojila)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 17 Aug 2019 12:42:38 +0800</lastBuildDate><atom:link href="https://gaojila.github.io/tags/%E8%AE%B0%E4%B8%80%E6%AC%A1gearman%E6%95%85%E9%9A%9C%E8%B0%83%E6%9F%A5/" rel="self" type="application/rss+xml"/><item><title>记一次gearman故障调查</title><link>https://gaojila.github.io/%E8%AE%B0%E4%B8%80%E6%AC%A1gearman%E6%95%85%E9%9A%9C%E8%B0%83%E6%9F%A5/</link><pubDate>Sat, 17 Aug 2019 12:42:38 +0800</pubDate><author>作者</author><guid>https://gaojila.github.io/%E8%AE%B0%E4%B8%80%E6%AC%A1gearman%E6%95%85%E9%9A%9C%E8%B0%83%E6%9F%A5/</guid><description>场景 个业务系统无法生成订单,订单报错和 gearman 的 worker 有关，使用 curl 调用接口发现报 500 错误。 过程 curl 调用接口不通 登录 gearman 服务器调用接口不通 重启 gearman worker 调用不通 查看</description></item></channel></rss>

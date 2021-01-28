@@ -1,15 +1,1 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>邮件客户端 - 标签 - 哥斯拉的小站</title>
-        <link>https://gaojila.github.io/tags/%E9%82%AE%E4%BB%B6%E5%AE%A2%E6%88%B7%E7%AB%AF/</link>
-        <description>邮件客户端 - 标签 - 哥斯拉的小站</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>redgaojila@gmail.com (Gojila)</managingEditor>
-            <webMaster>redgaojila@gmail.com (Gojila)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 19 Aug 2019 20:06:43 &#43;0800</lastBuildDate><atom:link href="https://gaojila.github.io/tags/%E9%82%AE%E4%BB%B6%E5%AE%A2%E6%88%B7%E7%AB%AF/" rel="self" type="application/rss+xml" /><item>
-    <title>neomutt&#43;procmail&#43;fetchmail&#43;msmtp配置exchange邮箱</title>
-    <link>https://gaojila.github.io/neomutt-procmail-fetchmail-msmtp%E9%85%8D%E7%BD%AEexchange%E9%82%AE%E7%AE%B1/</link>
-    <pubDate>Mon, 19 Aug 2019 20:06:43 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://gaojila.github.io/neomutt-procmail-fetchmail-msmtp%E9%85%8D%E7%BD%AEexchange%E9%82%AE%E7%AE%B1/</guid>
-    <description><![CDATA[场景 vim 用久了总想用 vim 来编辑邮件，可是公司的邮箱是 exchange 很头疼，好在最后找到了 davmail 这么个玩意。 davmail 配置邮件交换 下载 个人不太喜欢图形界面，所以直接用 davmail server]]></description>
-</item></channel>
-</rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>邮件客户端 - 标签 - 哥斯拉的小站</title><link>https://gaojila.github.io/tags/%E9%82%AE%E4%BB%B6%E5%AE%A2%E6%88%B7%E7%AB%AF/</link><description>邮件客户端 - 标签 - 哥斯拉的小站</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>redgaojila@gmail.com (Gojila)</managingEditor><webMaster>redgaojila@gmail.com (Gojila)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 19 Aug 2019 20:06:43 +0800</lastBuildDate><atom:link href="https://gaojila.github.io/tags/%E9%82%AE%E4%BB%B6%E5%AE%A2%E6%88%B7%E7%AB%AF/" rel="self" type="application/rss+xml"/><item><title>neomutt+procmail+fetchmail+msmtp配置exchange邮箱</title><link>https://gaojila.github.io/neomutt-procmail-fetchmail-msmtp%E9%85%8D%E7%BD%AEexchange%E9%82%AE%E7%AE%B1/</link><pubDate>Mon, 19 Aug 2019 20:06:43 +0800</pubDate><author>作者</author><guid>https://gaojila.github.io/neomutt-procmail-fetchmail-msmtp%E9%85%8D%E7%BD%AEexchange%E9%82%AE%E7%AE%B1/</guid><description>场景 vim 用久了总想用 vim 来编辑邮件，可是公司的邮箱是 exchange 很头疼，好在最后找到了 davmail 这么个玩意。 davmail 配置邮件交换 下载 个人不太喜欢图形界面，所以直接用 davmail server</description></item></channel></rss>

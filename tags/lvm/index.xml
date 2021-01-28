@@ -1,15 +1,1 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>lvm - 标签 - 哥斯拉的小站</title>
-        <link>https://gaojila.github.io/tags/lvm/</link>
-        <description>lvm - 标签 - 哥斯拉的小站</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>redgaojila@gmail.com (Gojila)</managingEditor>
-            <webMaster>redgaojila@gmail.com (Gojila)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 06 Nov 2019 14:50:57 &#43;0800</lastBuildDate><atom:link href="https://gaojila.github.io/tags/lvm/" rel="self" type="application/rss+xml" /><item>
-    <title>Vmware-linux虚拟机的磁盘扩容</title>
-    <link>https://gaojila.github.io/vmware-linux%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%9A%84%E7%A3%81%E7%9B%98%E6%89%A9%E5%AE%B9/</link>
-    <pubDate>Wed, 06 Nov 2019 14:50:57 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://gaojila.github.io/vmware-linux%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%9A%84%E7%A3%81%E7%9B%98%E6%89%A9%E5%AE%B9/</guid>
-    <description><![CDATA[背景 40GB(sys)256GB*(data)，合并成为一个 lvm 逻辑分区 ubuntu-root 目标 最小代价实现 lvm 扩容 64GB 方法 新建一块 64GB 虚拟硬盘，合并到 ubuntu-root 逻辑分区 优点]]></description>
-</item></channel>
-</rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>lvm - 标签 - 哥斯拉的小站</title><link>https://gaojila.github.io/tags/lvm/</link><description>lvm - 标签 - 哥斯拉的小站</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>redgaojila@gmail.com (Gojila)</managingEditor><webMaster>redgaojila@gmail.com (Gojila)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 06 Nov 2019 14:50:57 +0800</lastBuildDate><atom:link href="https://gaojila.github.io/tags/lvm/" rel="self" type="application/rss+xml"/><item><title>Vmware-linux虚拟机的磁盘扩容</title><link>https://gaojila.github.io/vmware-linux%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%9A%84%E7%A3%81%E7%9B%98%E6%89%A9%E5%AE%B9/</link><pubDate>Wed, 06 Nov 2019 14:50:57 +0800</pubDate><author>作者</author><guid>https://gaojila.github.io/vmware-linux%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%9A%84%E7%A3%81%E7%9B%98%E6%89%A9%E5%AE%B9/</guid><description>背景 40GB(sys)256GB*(data)，合并成为一个 lvm 逻辑分区 ubuntu-root 目标 最小代价实现 lvm 扩容 64GB 方法 新建一块 64GB 虚拟硬盘，合并到 ubuntu-root 逻辑分区 优点</description></item></channel></rss>

@@ -1,15 +1,1 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>资源控制器(RS,deployment) - 标签 - 哥斯拉的小站</title>
-        <link>https://gaojila.github.io/tags/%E8%B5%84%E6%BA%90%E6%8E%A7%E5%88%B6%E5%99%A8rsdeployment/</link>
-        <description>资源控制器(RS,deployment) - 标签 - 哥斯拉的小站</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>redgaojila@gmail.com (Gojila)</managingEditor>
-            <webMaster>redgaojila@gmail.com (Gojila)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 12 Feb 2020 18:45:23 &#43;0800</lastBuildDate><atom:link href="https://gaojila.github.io/tags/%E8%B5%84%E6%BA%90%E6%8E%A7%E5%88%B6%E5%99%A8rsdeployment/" rel="self" type="application/rss+xml" /><item>
-    <title>k8s资源控制器</title>
-    <link>https://gaojila.github.io/k8s%E8%B5%84%E6%BA%90%E6%8E%A7%E5%88%B6%E5%99%A8/</link>
-    <pubDate>Wed, 12 Feb 2020 18:45:23 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://gaojila.github.io/k8s%E8%B5%84%E6%BA%90%E6%8E%A7%E5%88%B6%E5%99%A8/</guid>
-    <description><![CDATA[ReplicaSet 什么是 ReplicaSet？ ReplicaSet 是下一代复本控制器。ReplicaSet 和 Replication Controller 之间的唯一区别是现在的选择器支持。Replication Controller 只支]]></description>
-</item></channel>
-</rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>资源控制器(RS,deployment) - 标签 - 哥斯拉的小站</title><link>https://gaojila.github.io/tags/%E8%B5%84%E6%BA%90%E6%8E%A7%E5%88%B6%E5%99%A8rsdeployment/</link><description>资源控制器(RS,deployment) - 标签 - 哥斯拉的小站</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>redgaojila@gmail.com (Gojila)</managingEditor><webMaster>redgaojila@gmail.com (Gojila)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 12 Feb 2020 18:45:23 +0800</lastBuildDate><atom:link href="https://gaojila.github.io/tags/%E8%B5%84%E6%BA%90%E6%8E%A7%E5%88%B6%E5%99%A8rsdeployment/" rel="self" type="application/rss+xml"/><item><title>k8s资源控制器</title><link>https://gaojila.github.io/k8s%E8%B5%84%E6%BA%90%E6%8E%A7%E5%88%B6%E5%99%A8/</link><pubDate>Wed, 12 Feb 2020 18:45:23 +0800</pubDate><author>作者</author><guid>https://gaojila.github.io/k8s%E8%B5%84%E6%BA%90%E6%8E%A7%E5%88%B6%E5%99%A8/</guid><description>ReplicaSet 什么是 ReplicaSet？ ReplicaSet 是下一代复本控制器。ReplicaSet 和 Replication Controller 之间的唯一区别是现在的选择器支持。Replication Controller 只支</description></item></channel></rss>

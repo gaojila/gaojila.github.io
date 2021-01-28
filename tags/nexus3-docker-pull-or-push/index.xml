@@ -1,15 +1,1 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>nexus3 docker pull or push - 标签 - 哥斯拉的小站</title>
-        <link>https://gaojila.github.io/tags/nexus3-docker-pull-or-push/</link>
-        <description>nexus3 docker pull or push - 标签 - 哥斯拉的小站</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>redgaojila@gmail.com (Gojila)</managingEditor>
-            <webMaster>redgaojila@gmail.com (Gojila)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 09 Aug 2019 08:46:17 &#43;0800</lastBuildDate><atom:link href="https://gaojila.github.io/tags/nexus3-docker-pull-or-push/" rel="self" type="application/rss+xml" /><item>
-    <title>docker私有仓库pull和push</title>
-    <link>https://gaojila.github.io/docker%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93pull%E5%92%8Cpush/</link>
-    <pubDate>Fri, 09 Aug 2019 08:46:17 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://gaojila.github.io/docker%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93pull%E5%92%8Cpush/</guid>
-    <description><![CDATA[login 1 docker login &lt;host&gt; pull 1 docker pull &lt;host&gt;/&lt;porject&gt;/&lt;repo&gt;:&lt;tag&gt; push 重新打 tag 1 docker tag &lt;img_name&gt;:&lt;tage&gt; &lt;host&gt;/&lt;project&gt;/&lt;repo&gt;:&lt;tag&gt; push 1 docker push &lt;host&gt;/&lt;porject&gt;/&lt;repo&gt;:&lt;tag&gt;]]></description>
-</item></channel>
-</rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>nexus3 docker pull or push - 标签 - 哥斯拉的小站</title><link>https://gaojila.github.io/tags/nexus3-docker-pull-or-push/</link><description>nexus3 docker pull or push - 标签 - 哥斯拉的小站</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>redgaojila@gmail.com (Gojila)</managingEditor><webMaster>redgaojila@gmail.com (Gojila)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 09 Aug 2019 08:46:17 +0800</lastBuildDate><atom:link href="https://gaojila.github.io/tags/nexus3-docker-pull-or-push/" rel="self" type="application/rss+xml"/><item><title>docker私有仓库pull和push</title><link>https://gaojila.github.io/docker%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93pull%E5%92%8Cpush/</link><pubDate>Fri, 09 Aug 2019 08:46:17 +0800</pubDate><author>作者</author><guid>https://gaojila.github.io/docker%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93pull%E5%92%8Cpush/</guid><description><![CDATA[login 1 docker login &lt;host&gt; pull 1 docker pull &lt;host&gt;/&lt;porject&gt;/&lt;repo&gt;:&lt;tag&gt; push 重新打 tag 1 docker tag &lt;img_name&gt;:&lt;tage&gt; &lt;host&gt;/&lt;project&gt;/&lt;repo&gt;:&lt;tag&gt; push 1 docker push &lt;host&gt;/&lt;porject&gt;/&lt;repo&gt;:&lt;tag&gt;]]></description></item></channel></rss>
