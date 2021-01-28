@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>greenplum ubuntu 16.04安装 - 标签 - 哥斯拉的小站</title>
+        <link>https://gaojila.github.io/tags/greenplum-ubuntu-16.04%E5%AE%89%E8%A3%85/</link>
+        <description>greenplum ubuntu 16.04安装 - 标签 - 哥斯拉的小站</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>redgaojila@gmail.com (Gojila)</managingEditor>
+            <webMaster>redgaojila@gmail.com (Gojila)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 04 Jul 2019 16:53:06 &#43;0800</lastBuildDate><atom:link href="https://gaojila.github.io/tags/greenplum-ubuntu-16.04%E5%AE%89%E8%A3%85/" rel="self" type="application/rss+xml" /><item>
+    <title>greenplum安装</title>
+    <link>https://gaojila.github.io/greenplum%E5%AE%89%E8%A3%85/</link>
+    <pubDate>Thu, 04 Jul 2019 16:53:06 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://gaojila.github.io/greenplum%E5%AE%89%E8%A3%85/</guid>
+    <description><![CDATA[所有节点操作 所有节点安装 greenplum 1 2 3 add-apt-repository ppa:greenplum/db apt-get update apt-get install greenplum-db-oss 将所有节点添加到 hosts 文件中 1 2 3 4 172.16.132.134 gpmaster 172.16.132.136 gpslave 172.16.132.135 gpsegment1 172.16.132.137 gpsegment2 添加 gpadmin 用户 1 2 groupadd gpadmin useradd -m -g gpadmin -s /bin/bash gpadmin 更改系统参数 vim]]></description>
+</item></channel>
+</rss>

@@ -1,0 +1,22 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>greenplum - 分类 - 哥斯拉的小站</title>
+        <link>https://gaojila.github.io/categories/greenplum/</link>
+        <description>greenplum - 分类 - 哥斯拉的小站</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>redgaojila@gmail.com (Gojila)</managingEditor>
+            <webMaster>redgaojila@gmail.com (Gojila)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 16 Jul 2019 10:42:56 &#43;0800</lastBuildDate><atom:link href="https://gaojila.github.io/categories/greenplum/" rel="self" type="application/rss+xml" /><item>
+    <title>greenplum并行备份与恢复</title>
+    <link>https://gaojila.github.io/greenplum%E5%B9%B6%E8%A1%8C%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/</link>
+    <pubDate>Tue, 16 Jul 2019 10:42:56 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://gaojila.github.io/greenplum%E5%B9%B6%E8%A1%8C%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/</guid>
+    <description><![CDATA[备份工具选择 gpcrondump 说明 gpcrondump 实用程序将数据库的内容转储为 SQL 脚本文件，然后可以使用它们在以后使用它来还原数据库架构和用户数据 gpdbrestore。在]]></description>
+</item><item>
+    <title>greenplum安装</title>
+    <link>https://gaojila.github.io/greenplum%E5%AE%89%E8%A3%85/</link>
+    <pubDate>Thu, 04 Jul 2019 16:53:06 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://gaojila.github.io/greenplum%E5%AE%89%E8%A3%85/</guid>
+    <description><![CDATA[所有节点操作 所有节点安装 greenplum 1 2 3 add-apt-repository ppa:greenplum/db apt-get update apt-get install greenplum-db-oss 将所有节点添加到 hosts 文件中 1 2 3 4 172.16.132.134 gpmaster 172.16.132.136 gpslave 172.16.132.135 gpsegment1 172.16.132.137 gpsegment2 添加 gpadmin 用户 1 2 groupadd gpadmin useradd -m -g gpadmin -s /bin/bash gpadmin 更改系统参数 vim]]></description>
+</item></channel>
+</rss>

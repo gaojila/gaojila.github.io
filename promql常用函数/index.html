@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>PromQL常用函数 - 哥斯拉的小站</title><meta name="Description" content=""><meta property="og:title" content="PromQL常用函数" />
+<meta property="og:description" content="PromQL 常用函数 abs() abs(v instant-vector)返回输入向量，所有样本值都转换为其绝对值。 absent() absent(v instant-vector)如果传递给它的向量具" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://gaojila.github.io/promql%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/" />
+<meta property="og:image" content="https://gaojila.github.io/logo.png"/>
+<meta property="article:published_time" content="2020-08-31T11:43:38+08:00" />
+<meta property="article:modified_time" content="2020-08-31T11:43:38+08:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://gaojila.github.io/logo.png"/>
+
+<meta name="twitter:title" content="PromQL常用函数"/>
+<meta name="twitter:description" content="PromQL 常用函数 abs() abs(v instant-vector)返回输入向量，所有样本值都转换为其绝对值。 absent() absent(v instant-vector)如果传递给它的向量具"/>
+<meta name="application-name" content="哥斯拉的小站">
+<meta name="apple-mobile-web-app-title" content="哥斯拉的小站"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://gaojila.github.io/promql%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/" /><link rel="prev" href="https://gaojila.github.io/cka2.kubectl-logs/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "PromQL常用函数",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/gaojila.github.io\/promql%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0\/"
+        },"image": ["https:\/\/gaojila.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "PromQL","wordcount":  3519 ,
+        "url": "https:\/\/gaojila.github.io\/promql%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0\/","datePublished": "2020-08-31T11:43:38+08:00","dateModified": "2020-08-31T11:43:38+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "Gojila","logo": "https:\/\/gaojila.github.io\/images\/avatar.png"},"author": {
+                "@type": "Person",
+                "name": "Gojila"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="哥斯拉的小站"><span class="header-title-pre">😍</span><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="哥斯拉的小站"><span class="header-title-pre">😍</span><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">PromQL常用函数</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Gojila</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/prometheus/"><i class="far fa-folder fa-fw"></i>Prometheus</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-08-31">2020-08-31</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3519 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 8 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#abs">abs()</a></li>
+    <li><a href="#absent">absent()</a></li>
+    <li><a href="#ceil">ceil()</a></li>
+    <li><a href="#changes">changes()</a></li>
+    <li><a href="#clamp_max">clamp_max()</a></li>
+    <li><a href="#clamp_min">clamp_min()</a></li>
+    <li><a href="#day_of_month">day_of_month()</a></li>
+    <li><a href="#day_of_week">day_of_week()</a></li>
+    <li><a href="#days_in_month">days_in_month()</a></li>
+    <li><a href="#hour">hour()</a></li>
+    <li><a href="#minute">minute()</a></li>
+    <li><a href="#month">month()</a></li>
+    <li><a href="#year">year()</a></li>
+    <li><a href="#time">time()</a></li>
+    <li><a href="#timestamp">timestamp()</a></li>
+    <li><a href="#delta">delta()</a></li>
+    <li><a href="#idelta">idelta()</a></li>
+    <li><a href="#deriv">deriv()</a></li>
+    <li><a href="#floor">floor()</a></li>
+    <li><a href="#histogram_quantile">histogram_quantile()</a></li>
+    <li><a href="#holt_winters">holt_winters()</a></li>
+    <li><a href="#increase">increase()</a></li>
+    <li><a href="#exp">exp()</a></li>
+    <li><a href="#ln">ln()</a></li>
+    <li><a href="#log2">log2()</a></li>
+    <li><a href="#log10">log10()</a></li>
+    <li><a href="#sqrt">sqrt()</a></li>
+    <li><a href="#predict_linear">predict_linear()</a></li>
+    <li><a href="#rate">rate()</a></li>
+    <li><a href="#irate">irate()</a></li>
+    <li><a href="#resets">resets()</a></li>
+    <li><a href="#round">round()</a></li>
+    <li><a href="#scalar">scalar()</a></li>
+    <li><a href="#sort">sort()</a></li>
+    <li><a href="#sort_desc">sort_desc()</a></li>
+    <li><a href="#vector">vector()</a></li>
+    <li><a href="#aggregation_over_time"><aggregation>_over_time()</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="promql-常用函数">PromQL 常用函数</h1>
+<h2 id="abs">abs()</h2>
+<p><code>abs(v instant-vector)</code>返回输入向量，所有样本值都转换为其<strong>绝对值</strong>。</p>
+<h2 id="absent">absent()</h2>
+<p><br><code>absent(v instant-vector)</code>如果传递给它的向量具有任何元素，则返回空向量;如果传递给它的向量没有元素，则返回值为 1 的 1 元素向量。</br>
+<br>这对于在给定度量标准名称和标签组合不存在时间序列时发出警报非常有用。</br></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">absent<span class="o">(</span>nonexistent<span class="o">{</span><span class="nv">job</span><span class="o">=</span><span class="s2">&#34;myjob&#34;</span><span class="o">})</span>
+<span class="c1"># =&gt; {job=&#34;myjob&#34;}</span>
+absent<span class="o">(</span>nonexistent<span class="o">{</span><span class="nv">job</span><span class="o">=</span><span class="s2">&#34;myjob&#34;</span>, <span class="nv">instance</span><span class="o">=</span>~<span class="s2">&#34;.*&#34;</span><span class="o">})</span>
+<span class="c1"># =&gt; {job=&#34;myjob&#34;}</span>
+absent<span class="o">(</span>sum<span class="o">(</span>nonexistent<span class="o">{</span><span class="nv">job</span><span class="o">=</span><span class="s2">&#34;myjob&#34;</span><span class="o">}))</span>
+<span class="c1"># =&gt; {}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><br>第在二个例子中，absent()试图从输入向量中导出 1 元素输出向量的标签。</br></p>
+<h2 id="ceil">ceil()</h2>
+<p><br><code>ceil(v instant-vector)</code> 将 v 中所有元素的样本值舍入到最接近的整数。</br></p>
+<h2 id="changes">changes()</h2>
+<p><br>对于每个输入时间系列，<code>changes(v range-vector)</code> 将返回其值在所提供的时间范围内更改的次数作为即时向量。</br></p>
+<h2 id="clamp_max">clamp_max()</h2>
+<p><br><code>clamp_max(v instant-vector, max scalar)</code>钳制 v 中所有元素的样本值，使其上限为 max。</br></p>
+<h2 id="clamp_min">clamp_min()</h2>
+<p><br><code>clamp_min(v instant-vector, min scalar)</code>钳制 v 中所有元素的样本值，使其下限为 min。</br></p>
+<h2 id="day_of_month">day_of_month()</h2>
+<p><br><code>day_of_month(v=vector(time()) instant-vector)</code>返回 UTC 中每个给定时间的月中的某天。 返回值为 1 到 31。</br></p>
+<h2 id="day_of_week">day_of_week()</h2>
+<p><br><code>day_of_week(v=vector(time()) instant-vector)</code>返回 UTC 中每个给定时间的星期几。 返回值为 0 到 6，其中 0 表示星期日等。</br></p>
+<h2 id="days_in_month">days_in_month()</h2>
+<p><br><code>days_in_month(v=vector(time()) instant-vector)</code>返回 UTC 中每个给定时间的月中天数。 返回值为 28 到 31。</br></p>
+<h2 id="hour">hour()</h2>
+<p><br><code>hour(v=vector(time()) instant-vector)</code>返回 UTC 中每个给定时间的一天中的小时。 返回值为 0 到 23。</br></p>
+<h2 id="minute">minute()</h2>
+<p><br><code>minute(v=vector(time()) instant-vector)</code>以 UTC 为单位返回每个给定时间的分钟。 返回值为 0 到 59。</br></p>
+<h2 id="month">month()</h2>
+<p><br><code>month(v=vector(time()) instant-vector)</code>返回 UTC 中每个给定时间的一年中的月份。 返回值为 2 到 12，其中 1 表示 1 月等。</br></p>
+<h2 id="year">year()</h2>
+<p><br><code>year(v=vector(time()) instant-vector)</code>以 UTC 格式返回每个给定时间的年份。</br></p>
+<h2 id="time">time()</h2>
+<p><br><code>time()</code>返回自 1970 年 1 月 1 日 UTC 以来的秒数。 请注意，这实际上并不返回当前时间，而是返回计算表达式的时间。</br></p>
+<h2 id="timestamp">timestamp()</h2>
+<p><br><code>timestamp(v instant-vector)</code>返回给定向量的每个样本的时间戳，作为自 1970 年 1 月 1 日 UTC 以来的秒数。</br></p>
+<h2 id="delta">delta()</h2>
+<p><br><code>delta(v range-vector)</code>计算范围向量 v 中每个时间系列元素的第一个和最后一个值之间的差值，返回具有给定增量和等效标签的即时向量。</br>
+<br><code>delta</code> 被外推以覆盖范围向量选择器中指定的全时间范围，因此即使样本值都是整数，也可以获得非整数结果。delta 应仅用于仪表。</br></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">以下示例表达式返回现在和2小时之前CPU温度的差异：
+delta(cpu_temp_celsius{host=&#34;zeus&#34;}[2h])
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="idelta">idelta()</h2>
+<p><br><code>idelta(v range-vector)</code>计算范围向量 v 中最后两个样本之间的差异，返回具有给定增量和等效标签的即时向量。<code>idelta</code>只能用于仪表。</br></p>
+<h2 id="deriv">deriv()</h2>
+<p><br><code>deriv(v range-vector)</code>函数，计算一个范围向量 v 中各个时间序列二阶导数，使用简单线性回归,<code>deriv</code>应仅用于仪表。</br></p>
+<h2 id="floor">floor()</h2>
+<p><br><code>floor(v instant-vector)</code>将 v 中所有元素的样本值舍入为最接近的整数。</br></p>
+<h2 id="histogram_quantile">histogram_quantile()</h2>
+<p><br><code>histogram_quatile(φ float, b instant-vector)</code> 计算 b 向量的 φ-直方图 (0 ≤ φ ≤ 1) 。（有关 φ-分位数的详细解释和直方图度量类型的使用，请参见直方图和摘要。）b 中的样本是每个桶中的观察计数。 每个样本必须具有标签 le，其中标签值表示桶的包含上限。 （没有这种标签的样本会被忽略。）直方图度量标准类型自动提供带有_bucket 后缀和相应标签的时间序列。
+使用 rate()函数指定分位数计算的时间窗口。</br></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">示例：直方图度量标准称为 http_request_duration_seconds。 要计算过去 10m 内请求持续时间的第 <span class="m">90</span> 个百分位数，请使用以下表达式：
+histogram_quantile<span class="o">(</span>0.9, rate<span class="o">(</span>http_request_duration_seconds_bucket<span class="o">[</span>10m<span class="o">]))</span>
+在 http_request_duration_seconds 中为每个标签组合计算分位数。 要聚合，请在 rate<span class="o">()</span>函数周围使用 sum<span class="o">()</span>聚合器。 由于 histogram_quantile<span class="o">()</span>需要 le 标签，因此必须将其包含在 by 子句中。 以下表达式按作业聚合第 <span class="m">90</span> 个百分点：
+histogram_quantile<span class="o">(</span>0.9, sum<span class="o">(</span>rate<span class="o">(</span>http_request_duration_seconds_bucket<span class="o">[</span>10m<span class="o">]))</span> by <span class="o">(</span>job, le<span class="o">))</span>
+要聚合所有内容，请仅指定 le 标签：
+histogram_quantile<span class="o">(</span>0.9, sum<span class="o">(</span>rate<span class="o">(</span>http_request_duration_seconds_bucket<span class="o">[</span>10m<span class="o">]))</span> by <span class="o">(</span>le<span class="o">))</span>
+histogram_quantile<span class="o">()</span>函数通过假设桶内的线性分布来插值分位数值。 最高桶必须具有+Inf 的上限。 （否则，返回 NaN。）如果分位数位于最高桶中，则返回第二个最高桶的上限。 如果该桶的上限大于 0，则假设最低桶的下限为 0.在这种情况下，在该桶内应用通常的线性插值。 否则，对于位于最低桶中的分位数，返回最低桶的上限。
+如果 b 包含少于两个桶，则返回 NaN。 对于 φ&lt;0，返回-Inf。 对于 φ&gt; 1，返回+Inf。
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="holt_winters">holt_winters()</h2>
+<p><br><code>holt_winters(v range-vector, sf scalar, tf scalar)</code>根据 v 中的范围产生时间序列的平滑值。平滑因子 sf 越低，对旧数据的重要性越高。 趋势因子 tf 越高，则考虑的数据趋势越多。 sf 和 tf 都必须介于 0 和 1 之间。<code>holt_winters</code>只能用于仪表。</br></p>
+<h2 id="increase">increase()</h2>
+<p><br><code>increase(v range-vector)</code>计算范围向量中时间序列的增加。 单调性中断（例如由于目标重启而导致的计数器重置）会自动调整。 增加外推以覆盖范围向量选择器中指定的全时间范围，因此即使计数器仅以整数增量增加，也可以获得非整数结果。</br></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">以下示例表达式返回范围向量中每个时间系列在过去5分钟内测量的HTTP请求数：
+increase<span class="o">(</span>http_requests_total<span class="o">{</span><span class="nv">job</span><span class="o">=</span><span class="s2">&#34;api-server&#34;</span><span class="o">}[</span>5m<span class="o">])</span>
+increase只应与counters一起使用。 它是rate<span class="o">(</span>v<span class="o">)</span>的语法糖乘以指定时间范围窗口下的秒数，应该主要用于人类可读性。 在记录规则中使用rate，以便每秒一致地跟踪增量。
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="exp">exp()</h2>
+<p><br><code>exp(v instant-vector)</code>计算 v 中所有元素的指数函数。特殊情况是：</br></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">xp<span class="o">(</span>+inf<span class="o">)</span> <span class="o">=</span> +Inf
+Exp<span class="o">(</span>NaN<span class="o">)</span> <span class="o">=</span> NaN
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="ln">ln()</h2>
+<p><br><code>ln(v instance-vector)</code>计算 v 中所有元素的自然对数。特殊情况是：</br></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">ln<span class="o">(</span>+Inf<span class="o">)</span> <span class="o">=</span> +Inf
+ln<span class="o">(</span>0<span class="o">)</span> <span class="o">=</span> -Inf
+ln<span class="o">(</span>x&lt;0<span class="o">)</span> <span class="o">=</span> NaN
+ln<span class="o">(</span>NaN<span class="o">)</span> <span class="o">=</span> NaN
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="log2">log2()</h2>
+<p><br><code>log2(v instant-vector)</code>计算 v 中所有元素的二进制对数。特殊情况等同于 ln 中的特殊情况。</br></p>
+<h2 id="log10">log10()</h2>
+<p><br><code>log10(v instant-vector)</code>计算 v 中所有元素的 10 进制对数。特殊情况等同于 ln 中的特殊情况。</br></p>
+<h2 id="sqrt">sqrt()</h2>
+<p><br><code>sqrt(v instant-vector)</code>计算 v 中所有元素的平方根。</br></p>
+<h2 id="predict_linear">predict_linear()</h2>
+<p><br><code>predict_linear(v range-vector, t scalar)</code>根据范围向量 v 使用线性回归预测从现在起 t 秒的时间序列值。<code>predict_linear</code>只应与仪表一起使用。</br></p>
+<h2 id="rate">rate()</h2>
+<p><br><code>rate(v range-vector)</code>计算范围向量中时间序列的每秒平均增长率。 单调性中断（例如由于目标重启而导致的计数器重置）会自动调整。 此外，计算推断到时间范围的末端，允许错过刮擦或刮擦循环与范围的时间段的不完美对齐。</br></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">以下示例表达式返回范围向量中每个时间系列在过去5分钟内测量的每秒HTTP请求率：
+rate<span class="o">(</span>http_requests_total<span class="o">{</span><span class="nv">job</span><span class="o">=</span><span class="s2">&#34;api-server&#34;</span><span class="o">}[</span>5m<span class="o">])</span>
+rate应仅用于计数器。 它最适用于警报和缓慢移动计数器的图形。
+注意，当将rate<span class="o">()</span>与聚合运算符（例如sum<span class="o">()</span>）或随时间聚合的函数（任何以_over_time结尾的函数）组合时，始终首先采用rate<span class="o">()</span>，然后聚合。 否则，当目标重新启动时，rate<span class="o">()</span>无法检测计数器重置。
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="irate">irate()</h2>
+<p><br><code>irate(v range-vector)</code>计算范围向量中时间序列的每秒即时增长率。 这基于最后两个数据点。 单调性中断（例如由于目标重启而导致的计数器重置）会自动调整。</br></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">以下示例表达式返回范围向量中每个时间序列的两个最新数据点的最多5分钟的HTTP请求的每秒速率：
+irate<span class="o">(</span>http_requests_total<span class="o">{</span><span class="nv">job</span><span class="o">=</span><span class="s2">&#34;api-server&#34;</span><span class="o">}[</span>5m<span class="o">])</span>
+只应在绘制易失性快速移动计数器时使用irate。 警报和缓慢移动计数器的使用率，因为速率的简短更改可以重置FOR子句，并且难以阅读完全由稀有峰值组成的图形。
+注意，当将irate<span class="o">()</span>与聚合运算符（例如sum<span class="o">()</span>）或随时间聚合的函数（任何以_over_time结尾的函数）组合时，请始终首先采用irate<span class="o">()</span>，然后进行聚合。 否则，当目标重新启动时，irate<span class="o">()</span>无法检测计数器重置。
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="resets">resets()</h2>
+<p><br>对于每个时序数据，<code>resets()</code>在所提供的时间范围内返回计数器重置次数作为即时向量。 两个连续样本之间的值的任何减少都被解释为计数器重置。 <code>resets()</code>只应与计数器一起使用。</br></p>
+<h2 id="round">round()</h2>
+<p><br><code>round(v instant-vector, to_nearest 1= scalar)</code>将 v 中所有元素的样本值舍入为最接近的整数。 通过四舍五入解决关系。 可选的 to_nearest 参数允许指定样本值应舍入的最近倍数。 这个倍数也可能是一个分数。</br></p>
+<h2 id="scalar">scalar()</h2>
+<p><br>给定单元素输入向量，<code>scalar(v instant-vector)</code>将该单个元素的样本值作为标量返回。 如果输入向量不具有恰好一个元素，则 scalar 将返回 NaN</br></p>
+<h2 id="sort">sort()</h2>
+<p><br><code>sort(v instant-vector)</code>返回按其样本值排序的向量元素，按升序排列。</br></p>
+<h2 id="sort_desc">sort_desc()</h2>
+<p><br><code>sort(v instant-vector)</code>和<code>sort()</code>相同，但按降序排序。</br></p>
+<h2 id="vector">vector()</h2>
+<p><br><code>vector(s scalar)</code>将标量 s 作为没有标签的向量返回。</br></p>
+<h2 id="aggregation_over_time"><aggregation>_over_time()</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">以下函数允许聚合给定范围向量的每个系列随时间的变化并返回具有每系列聚合结果的即时向量：
+avg_over_time<span class="o">(</span>range-vector<span class="o">)</span>: 范围向量内每个度量指标的平均值。
+min_over_time<span class="o">(</span>range-vector<span class="o">)</span>: 范围向量内每个度量指标的最小值。
+max_over_time<span class="o">(</span>range-vector<span class="o">)</span>: 范围向量内每个度量指标的最大值。
+sum_over_time<span class="o">(</span>range-vector<span class="o">)</span>: 范围向量内每个度量指标的求和值。
+count_over_time<span class="o">(</span>range-vector<span class="o">)</span>: 范围向量内每个度量指标的样本数据个数。
+quantile_over_time<span class="o">(</span>scalar, range-vector<span class="o">)</span>: 范围向量内每个度量指标的样本数据值分位数，φ-quantile <span class="o">(</span><span class="m">0</span> ≤ φ ≤ 1<span class="o">)</span>
+stddev_over_time<span class="o">(</span>range-vector<span class="o">)</span>: 范围向量内每个度量指标的总体标准偏差。
+stdvar_over_time<span class="o">(</span>range-vector<span class="o">)</span>: 范围向量内每个度量指标的总体标准方差。
+请注意，即使值在整个时间间隔内的间隔不均匀，指定时间间隔内的所有值在聚合中都具有相同的权重。
+</code></pre></td></tr></table>
+</div>
+</div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2020-08-31</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/promql%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://gaojila.github.io/promql%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/" data-title="PromQL常用函数" data-hashtags="PromQL"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://gaojila.github.io/promql%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/" data-hashtag="PromQL"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://gaojila.github.io/promql%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/" data-title="PromQL常用函数"><i class="fab fa-hacker-news fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://gaojila.github.io/promql%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/" data-title="PromQL常用函数"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://gaojila.github.io/promql%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/" data-title="PromQL常用函数"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/promql/">PromQL</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/cka2.kubectl-logs/" class="prev" rel="prev" title="CKA(2.kubectl logs)"><i class="fas fa-angle-left fa-fw"></i>CKA(2.kubectl logs)</a></div>
+</div>
+<div id="comments"><div id="gitalk" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://github.com/gitalk/gitalk"></a>Gitalk</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Gojila</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@13.0.0/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@7.0.4/dist/typeit.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{"gitalk":{"admin":["gaojila"],"clientID":"0dc7899f1da0fe0da987","clientSecret":"f303eaf61e27467fa0400202224934bbf78baabe","id":"2020-08-31T11:43:38+08:00","owner":"gaojila","repo":"gaojila.github.io","title":"PromQL常用函数"}},"data":{"id-1":" [root@gaojila]# cd ~","id-2":" [root@gaojila]# cd ~"},"search":{"algoliaAppID":"U9QMQ70DKL","algoliaIndex":"gaojila.github.io","algoliaSearchKey":"9c5f0222136bb5161c8e6836edc66b05","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"twemoji":true,"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":50}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

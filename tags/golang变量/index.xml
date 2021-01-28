@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Golang(变量) - 标签 - 哥斯拉的小站</title>
+        <link>https://gaojila.github.io/tags/golang%E5%8F%98%E9%87%8F/</link>
+        <description>Golang(变量) - 标签 - 哥斯拉的小站</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>redgaojila@gmail.com (Gojila)</managingEditor>
+            <webMaster>redgaojila@gmail.com (Gojila)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 18 Aug 2019 16:08:20 &#43;0800</lastBuildDate><atom:link href="https://gaojila.github.io/tags/golang%E5%8F%98%E9%87%8F/" rel="self" type="application/rss+xml" /><item>
+    <title>从零开始学习Golang(变量)</title>
+    <link>https://gaojila.github.io/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AD%A6golang-%E5%8F%98%E9%87%8F/</link>
+    <pubDate>Sun, 18 Aug 2019 16:08:20 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://gaojila.github.io/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AD%A6golang-%E5%8F%98%E9%87%8F/</guid>
+    <description><![CDATA[前言 不知道从什么时候开始决定要深入学习一门开发语言了，从 17 年开始工作的时候漫无目的的学习 python 到现在，python 平时也会写但是大概还停留在抄代]]></description>
+</item></channel>
+</rss>

@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>linux常用命令详解 - 标签 - 哥斯拉的小站</title>
+        <link>https://gaojila.github.io/tags/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/</link>
+        <description>linux常用命令详解 - 标签 - 哥斯拉的小站</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>redgaojila@gmail.com (Gojila)</managingEditor>
+            <webMaster>redgaojila@gmail.com (Gojila)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 17 Aug 2019 12:09:27 &#43;0800</lastBuildDate><atom:link href="https://gaojila.github.io/tags/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/" rel="self" type="application/rss+xml" /><item>
+    <title>linux常用命令详解</title>
+    <link>https://gaojila.github.io/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/</link>
+    <pubDate>Sat, 17 Aug 2019 12:09:27 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://gaojila.github.io/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/</guid>
+    <description><![CDATA[前言 都是别人的链接有时间再自己整理 链接 top 介绍 tar 命令 linux 下压缩命令大全 linux 常用命令简单介绍(netstat,awk,top,tail,head,l]]></description>
+</item></channel>
+</rss>

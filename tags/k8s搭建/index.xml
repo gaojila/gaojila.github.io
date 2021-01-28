@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>k8s搭建 - 标签 - 哥斯拉的小站</title>
+        <link>https://gaojila.github.io/tags/k8s%E6%90%AD%E5%BB%BA/</link>
+        <description>k8s搭建 - 标签 - 哥斯拉的小站</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>redgaojila@gmail.com (Gojila)</managingEditor>
+            <webMaster>redgaojila@gmail.com (Gojila)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 06 Feb 2020 21:33:36 &#43;0800</lastBuildDate><atom:link href="https://gaojila.github.io/tags/k8s%E6%90%AD%E5%BB%BA/" rel="self" type="application/rss+xml" /><item>
+    <title>ubuntu1804国内使用kubeadm部署k8s</title>
+    <link>https://gaojila.github.io/ubuntu1804%E5%9B%BD%E5%86%85%E4%BD%BF%E7%94%A8kubeadm%E9%83%A8%E7%BD%B2k8s/</link>
+    <pubDate>Thu, 06 Feb 2020 21:33:36 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://gaojila.github.io/ubuntu1804%E5%9B%BD%E5%86%85%E4%BD%BF%E7%94%A8kubeadm%E9%83%A8%E7%BD%B2k8s/</guid>
+    <description><![CDATA[安装前准备 kvm 准备 3 台虚拟机 kube-master kube-node1 kube-node2 关闭防火墙 1 sudo ufw disable 关闭 swap 临时关闭 1 sudo swapoff -a 永久关闭 1 /etc/fstab 注释swap行 安装 docker 卸载旧 docker 1 sudo apt-get remove docker docker-engine docker.io 彻底删除 docker-ce 和 docker-cli]]></description>
+</item></channel>
+</rss>

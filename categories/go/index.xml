@@ -1,0 +1,43 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>GO - 分类 - 哥斯拉的小站</title>
+        <link>https://gaojila.github.io/categories/go/</link>
+        <description>GO - 分类 - 哥斯拉的小站</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>redgaojila@gmail.com (Gojila)</managingEditor>
+            <webMaster>redgaojila@gmail.com (Gojila)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 10 Sep 2019 11:07:39 &#43;0800</lastBuildDate><atom:link href="https://gaojila.github.io/categories/go/" rel="self" type="application/rss+xml" /><item>
+    <title>ldap搜索</title>
+    <link>https://gaojila.github.io/ldap%E6%90%9C%E7%B4%A2/</link>
+    <pubDate>Tue, 10 Sep 2019 11:07:39 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://gaojila.github.io/ldap%E6%90%9C%E7%B4%A2/</guid>
+    <description><![CDATA[前言 闲着没事，看 python 不爽，决定重构 mutt-lday.py 实现 viper 读取配置文件 ldap 解析配置文件 代码实现 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33]]></description>
+</item><item>
+    <title>从零开始学Golang-切片</title>
+    <link>https://gaojila.github.io/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AD%A6golang-%E5%88%87%E7%89%87/</link>
+    <pubDate>Tue, 20 Aug 2019 16:24:51 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://gaojila.github.io/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AD%A6golang-%E5%88%87%E7%89%87/</guid>
+    <description><![CDATA[切片 切片的定义 切片的声明 1 var name []T name:变量名 T:变量类型 切片的长度和容量 切片拥有自己的长度和容量，可以使用内置的 len()函数求长度，使]]></description>
+</item><item>
+    <title>Go基本数据类型</title>
+    <link>https://gaojila.github.io/go%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</link>
+    <pubDate>Mon, 19 Aug 2019 14:23:23 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://gaojila.github.io/go%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</guid>
+    <description><![CDATA[基本数据类型 整型 类型 描述 uint8 无符号 8 位整型(0 到 255) uint16 无符号 16 位整型(0 到 255) uint32 无符号 32 位整型(0 到 255) uint64 无符号 64 位整型(0 到 255) int8 有符号 8 位整型(-]]></description>
+</item><item>
+    <title>从零开始学习Golang(变量)</title>
+    <link>https://gaojila.github.io/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AD%A6golang-%E5%8F%98%E9%87%8F/</link>
+    <pubDate>Sun, 18 Aug 2019 16:08:20 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://gaojila.github.io/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AD%A6golang-%E5%8F%98%E9%87%8F/</guid>
+    <description><![CDATA[前言 不知道从什么时候开始决定要深入学习一门开发语言了，从 17 年开始工作的时候漫无目的的学习 python 到现在，python 平时也会写但是大概还停留在抄代]]></description>
+</item><item>
+    <title>Golang os包用法</title>
+    <link>https://gaojila.github.io/golang-os%E5%8C%85%E7%94%A8%E6%B3%95/</link>
+    <pubDate>Sun, 05 May 2019 13:56:33 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://gaojila.github.io/golang-os%E5%8C%85%E7%94%A8%E6%B3%95/</guid>
+    <description><![CDATA[os 常用导出函数 func Hostname() (name string, err error) // Hostname 返回内核提供的主机名 func Hostname() (name string, err error) // Hostname 返回内核提供的主机名 func Environ() []string // Environ 返回表示环境变量的格式为&quot;key=]]></description>
+</item></channel>
+</rss>
