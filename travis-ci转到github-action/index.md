@@ -39,6 +39,6 @@ Permissions Size User       Date Modified Name
 
 ### 配置源码仓库和发布仓库密钥
 
-![](https://github.com/gaojila/images/blob/master/travis-ci%E8%BD%AC%E5%88%B0github-action/Snipaste_2021-01-29_15-29-59.png)
+![](https://raw.githubusercontent.com/gaojila/images/master/travis-ci转到github-action/Snipaste_2021-01-29_15-29-59.png)
 
 
