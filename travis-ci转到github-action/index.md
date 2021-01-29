@@ -17,7 +17,7 @@ Generating public/private rsa key pair.
 Your identification has been saved in gh-pages.
 Your public key has been saved in gh-pages.pub.
 The key fingerprint is:
-SHA256:qm3ZlWXDEwfSwxmqMIQAzcDypK3lieShzOY4J7CYd20 redgaojila@gmail.com
+SHA256:qm3ZlWXDEwfSwxmqMIQAzcDyasdfasdfuqioweqnslfansd0 redgaojila@gmail.com
 The key's randomart image is:
 +---[RSA 4096]----+
 |+=.. ..   .oo+   |
