@@ -49,7 +49,7 @@
 ## 🐧 技能清单
 
 - 运维  
-  ★★★★☆ Linux (CentOs,SuSe,Ubuntu,RedHat)  
+  ★★★★☆ Linux (Fedora,SuSe,Debain,Archlinux,Gentoo)  
   ★★★☆☆ NBU、Backuppc  
   ★★★☆☆ Nginx、Apache  
   ★★★★☆ Zabbix、Grafana、Prometheus  
