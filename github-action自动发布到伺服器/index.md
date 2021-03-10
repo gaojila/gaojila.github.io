@@ -47,9 +47,9 @@ Permissions Size User       Date Modified Name
 
 2. 私钥配置和公钥配置
 - 私钥配置
-![private](img/private.png)[]()
+![private](https://raw.githubusercontent.com/master/github-action自动发布到伺服器/private.png)
 - 公钥配置
-![pub](img/pub.png)
+![pub](https://raw.githubusercontent.com/master/github-action自动发布到伺服器/pub.png)
 
 3. 配置Github Action(同时发布到Github Page)
 ```yaml
